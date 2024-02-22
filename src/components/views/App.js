@@ -5,6 +5,7 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import { TripList } from "../TripList/TripList";
 import { AddTripModal } from "../AddTripModal/AddTripModal";
 import { TripDetails } from "../TripDetails/TripDetails";
+import { useState } from "react";
 
 function App() {
   return (

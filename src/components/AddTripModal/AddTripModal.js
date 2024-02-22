@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTrips } from "../../redux/trips/selectors";
 import { addTrip } from "../../redux/trips/tripsSlice";
+import cities from "../../data/citiesList";
 
 export const AddTripModal = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,9 @@ export const AddTripModal = () => {
         value={city}
         onChange={handleChange}>
           <option value="" disabled >Please select a city</option>
-          {/* cities.map return <option>city</option> */}
+          {cities.map((city) => {
+           return <option key={city.id}>{city.city}</option>
+          })}
         </select>
         <label htmlFor="startDate">*Start date</label>
         <input
