@@ -1,20 +1,20 @@
 import axios from "axios";
 
-import {REACT_APP_API_KEY, REACT_APP_BASE_URL} from 'process.env';
-//const API_KEY = process.env.
+const API_KEY = process.env.REACT_APP_API_KEY;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-axios.defaults.baseURL = REACT_APP_BASE_URL;
+axios.defaults.baseURL = BASE_URL;
 
-const fetchWeatherForTrip = (city, date1, date2) => async dispatch => {
+export const fetchWeatherForTrip = (city, date1, date2) => async dispatch => {
     try {
-      const response = await axios.get(`/${city}/${date1}/${date2}?unitGroup=metric&amp;include=days&amp;key=${REACT_APP_API_KEY}&amp;contentType=json`);
+      const response = await axios.get(`/${city}/${date1}/${date2}?unitGroup=metric&amp;include=days&amp;key=${API_KEY}&amp;contentType=json`);
       return response.data;
     } catch (e) {}
   };
 
-  const fetchWeatherForToday = (city) => async dispatch => {
+ export const fetchWeatherForToday = (city) => async dispatch => {
     try {
-      const response = await axios.get(`/${city}/today?unitGroup=metric&amp;include=days&amp;key=${REACT_APP_API_KEY}&amp;contentType=json`);
+      const response = await axios.get(`/${city}/today?unitGroup=metric&amp;include=days&amp;key=${API_KEY}&amp;contentType=json`);
       return response.data;
     } catch (e) {}
   };

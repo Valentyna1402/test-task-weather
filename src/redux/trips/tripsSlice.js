@@ -10,15 +10,13 @@ export const persistConfig = {
 export const tripsSlice = createSlice({
   name: "trips",
   initialState: {
-    trips: [
-      { city: "Berlin", startDate: "14.03.2024", endDate: "28.03.2024" },
-    ],
+    trips: [{ city: "Berlin", startDate: "14-03-2024", endDate: "20-03-2024" }],
+    selectedTrip: null,
   },
   reducers: {
     addTrip: {
       reducer(state, action) {
-        console.log(action.payload)
-        state.push(action.payload);
+        state.trips.push(action.payload);
       },
 
       prepare(city, startDate, endDate) {
@@ -32,14 +30,13 @@ export const tripsSlice = createSlice({
         };
       },
     },
-    deleteTrip: {
+    selectTrip: {
       reducer(state, action) {
-        return state.filter((trip) => trip.id !== action.payload);
+        state.selectedTrip = action.payload;
       },
     },
   },
 });
 
-export const { addTrip, deleteTrip } = tripsSlice.actions;
+export const { addTrip, selectTrip } = tripsSlice.actions;
 
-export const getContacts = (state) => state.trips;

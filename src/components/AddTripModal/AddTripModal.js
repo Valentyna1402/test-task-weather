@@ -25,7 +25,6 @@ export const AddTripModal = () => {
   };
 
   const handleSubmit = (evt) => {
-    //console.log({ city, startDate, endDate })
     evt.preventDefault();
     dispatch(addTrip( city, startDate, endDate ));
     setCity(" ");
@@ -75,4 +74,4 @@ export const AddTripModal = () => {
       </form>
     </div>
   );
-};
+}
